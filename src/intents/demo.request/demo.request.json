@@ -1,0 +1,9 @@
+{
+  "name": "b9dd332a-ceca-41c5-ad57-605fd9af41f5",
+  "displayName": "demo.request",
+  "trainingPhrases": [],
+  "priority": 500000,
+  "isFallback": false,
+  "labels": {},
+  "description": "Direct conversion to demo booking"
+}

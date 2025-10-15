@@ -1,0 +1,37 @@
+{
+  "name": "71670cd1-ed4d-466f-ab38-ea7aa744a4d7",
+  "displayName": "Fallback Page",
+  "description": "Recovery options for unmatched input",
+  "entryFulfillment": {
+    "messages": [
+      {
+        "text": {
+          "text": [
+            "I didn't quite catch that. Let me help you another way."
+          ]
+        }
+      }
+    ]
+  },
+  "form": {
+    "parameters": []
+  },
+  "transitionRoutes": [
+    {
+      "condition": "true",
+      "triggerFulfillment": {
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "You can **learn what CivicAI is**, **ask a question**, or **book a demo**. What would you like to do?"
+              ]
+            }
+          }
+        ]
+      },
+      "targetPage": "entry-page"
+    }
+  ],
+  "eventHandlers": []
+}

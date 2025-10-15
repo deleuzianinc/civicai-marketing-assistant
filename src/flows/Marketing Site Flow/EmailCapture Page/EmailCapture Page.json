@@ -1,0 +1,83 @@
+{
+  "name": "00ab5090-a882-44a3-88ed-dd7d0640def5",
+  "displayName": "EmailCapture Page",
+  "description": "Collect email only for nurture follow-up",
+  "entryFulfillment": {
+    "messages": [
+      {
+        "text": {
+          "text": [
+            "I'll email you more information about CivicAI."
+          ]
+        }
+      }
+    ]
+  },
+  "form": {
+    "parameters": [
+      {
+        "displayName": "visitor_email",
+        "entityType": "sys.email",
+        "fillBehavior": {
+          "initialPromptFulfillment": {
+            "messages": [
+              {
+                "text": {
+                  "text": [
+                    "What's your email address?"
+                  ]
+                }
+              }
+            ]
+          },
+          "repromptEventHandlers": [
+            {
+              "event": "sys.no-match-default",
+              "triggerFulfillment": {
+                "messages": [
+                  {
+                    "text": {
+                      "text": [
+                        "Please provide a valid email address."
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "required": true,
+        "redact": false,
+        "advancedSettings": {}
+      }
+    ]
+  },
+  "transitionRoutes": [],
+  "eventHandlers": [
+    {
+      "event": "sys.form-filled",
+      "triggerFulfillment": {
+        "webhook": "lead_export_webhook",
+        "tag": "lead_export",
+        "setParameterActions": [
+          {
+            "parameter": "conversion_type",
+            "value": "email"
+          }
+        ],
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "Got it. We'll send a short overview to your email."
+              ]
+            }
+          }
+        ]
+      },
+      "targetFlow": "00000000-0000-0000-0000-000000000000",
+      "targetPage": "END_FLOW"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "1c4a1051-aafe-41bc-ac85-93600a17f247",
+  "displayName": "lead_export_webhook",
+  "genericWebService": {
+    "uri": "https://us-central1-civicai-472317.cloudfunctions.net/lead-export",
+    "username": "",
+    "password": "",
+    "requestHeaders": {},
+    "allowedCaCerts": [],
+    "oauthConfig": {},
+    "serviceAgentAuth": "SERVICE_AGENT_AUTH_UNSPECIFIED",
+    "webhookType": "WEBHOOK_TYPE_STANDARD",
+    "httpMethod": "POST",
+    "requestBody": "",
+    "parameterMapping": []
+  },
+  "timeout": "10s",
+  "disabled": false
+}

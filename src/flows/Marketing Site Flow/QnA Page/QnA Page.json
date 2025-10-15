@@ -1,0 +1,68 @@
+{
+  "name": "d6d8991f-ffe2-44d7-9102-14f2b030a1f0",
+  "displayName": "QnA Page",
+  "description": "Answer questions using Marketing Data Store Tool",
+  "entryFulfillment": {
+    "messages": [
+      {
+        "text": {
+          "text": [
+            "Let me answer that for you."
+          ]
+        }
+      }
+    ],
+    "enableGenerativeFallback": true
+  },
+  "form": {
+    "parameters": []
+  },
+  "transitionRoutes": [
+    {
+      "condition": "$session.params.kb_confidence = \"not_found\"",
+      "triggerFulfillment": {
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "I don't have that specific information in my approved sources. I can connect you with our team or set a quick demo—what's best?"
+              ]
+            }
+          }
+        ]
+      },
+      "targetPage": "entry-page"
+    },
+    {
+      "condition": "$session.params.kb_confidence = \"found\" AND ($intent.displayName = \"pricing.inquiry\" OR $intent.displayName = \"security.integration\")",
+      "triggerFulfillment": {
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "To better help you, let me ask a quick question about your needs."
+              ]
+            }
+          }
+        ]
+      },
+      "targetPage": "qualify-page"
+    },
+    {
+      "condition": "$session.params.kb_confidence = \"found\"",
+      "triggerFulfillment": {
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "Want to see it in action? Book a demo or I can email you more details."
+              ]
+            }
+          }
+        ]
+      },
+      "targetPage": "entry-page"
+    }
+  ],
+  "eventHandlers": []
+}

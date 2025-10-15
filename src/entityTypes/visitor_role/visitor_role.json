@@ -1,0 +1,44 @@
+{
+  "name": "bead29ef-b9be-43cb-b11d-a9f942ffa9c1",
+  "displayName": "visitor_role",
+  "kind": "KIND_MAP",
+  "autoExpansionMode": "AUTO_EXPANSION_MODE_DEFAULT",
+  "entities": [
+    {
+      "value": "decision_maker",
+      "synonyms": [
+        "decision maker",
+        "campaign manager",
+        "director",
+        "I'm the decision maker",
+        "I decide",
+        "it's my decision"
+      ]
+    },
+    {
+      "value": "recommender",
+      "synonyms": [
+        "recommender",
+        "advisor",
+        "consultant",
+        "I'm recommending",
+        "making a recommendation",
+        "advising"
+      ]
+    },
+    {
+      "value": "researcher",
+      "synonyms": [
+        "researcher",
+        "researching",
+        "gathering info",
+        "doing research",
+        "exploring for the team",
+        "researching options"
+      ]
+    }
+  ],
+  "excludedPhrases": [],
+  "enableFuzzyExtraction": false,
+  "redact": false
+}

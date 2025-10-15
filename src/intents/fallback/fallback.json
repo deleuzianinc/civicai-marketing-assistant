@@ -1,0 +1,9 @@
+{
+  "name": "93ad7eac-cdb5-414f-8d09-7bcc5341dad1",
+  "displayName": "fallback",
+  "trainingPhrases": [],
+  "priority": 500000,
+  "isFallback": true,
+  "labels": {},
+  "description": "Catch unmatched input"
+}

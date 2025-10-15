@@ -1,0 +1,68 @@
+{
+  "name": "6f72da9d-3c86-4064-9838-5e8d6c7b0097",
+  "displayName": "Handoff Page",
+  "description": "Human escalation with optional email capture",
+  "entryFulfillment": {
+    "messages": [
+      {
+        "text": {
+          "text": [
+            "I'll connect you with our team for personalized help."
+          ]
+        }
+      }
+    ]
+  },
+  "form": {
+    "parameters": [
+      {
+        "displayName": "visitor_email",
+        "entityType": "sys.email",
+        "fillBehavior": {
+          "initialPromptFulfillment": {
+            "messages": [
+              {
+                "text": {
+                  "text": [
+                    "What's your email address so they can reach you?"
+                  ]
+                }
+              }
+            ]
+          },
+          "repromptEventHandlers": []
+        },
+        "required": false,
+        "redact": false,
+        "advancedSettings": {}
+      }
+    ]
+  },
+  "transitionRoutes": [],
+  "eventHandlers": [
+    {
+      "event": "sys.form-filled",
+      "triggerFulfillment": {
+        "webhook": "lead_export_webhook",
+        "tag": "lead_export",
+        "setParameterActions": [
+          {
+            "parameter": "conversion_type",
+            "value": "handoff"
+          }
+        ],
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "I've noted your request for human assistance. Our team will reach out shortly."
+              ]
+            }
+          }
+        ]
+      },
+      "targetFlow": "00000000-0000-0000-0000-000000000000",
+      "targetPage": "END_FLOW"
+    }
+  ]
+}

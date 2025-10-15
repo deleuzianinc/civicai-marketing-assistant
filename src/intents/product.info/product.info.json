@@ -1,0 +1,9 @@
+{
+  "name": "a44f33eb-a7fb-4f06-bda3-73388774ea5e",
+  "displayName": "product.info",
+  "trainingPhrases": [],
+  "priority": 500000,
+  "isFallback": false,
+  "labels": {},
+  "description": "Trigger knowledge base search for product questions"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "a0638671-89e7-45ea-8aa9-7dc8fc0aaa0e",
+  "displayName": "greeting.entry",
+  "trainingPhrases": [],
+  "priority": 500000,
+  "isFallback": false,
+  "labels": {},
+  "description": "Match initial visitor interaction"
+}

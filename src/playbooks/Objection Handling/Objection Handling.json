@@ -1,0 +1,155 @@
+{
+  "name": "objection-handling-routine-playbook",
+  "displayName": "Objection Handling",
+  "goal": "Address common objections with one-line reassurance and a clear next step (demo or email).",
+  "inputParameterDefinitions": [],
+  "outputParameterDefinitions": [],
+  "instruction": {
+    "steps": [
+      {
+        "text": "- Use ${TOOL: marketing_knowledge_base} to find relevant reassurance for objections."
+      },
+      {
+        "text": "- For **message control/accuracy concerns**: 'CivicAI answers only from your campaign-approved knowledge base—no improvising. Every response is auditable.' → Offer demo."
+      },
+      {
+        "text": "- For **complexity/setup concerns**: 'Setup is no-code: add an embed snippet and load your approved content.' → Offer demo or installation guide if in data store."
+      },
+      {
+        "text": "- For **cost/ROI concerns**: 'We tailor pricing to needs and volume. Want us to email details or set a quick demo?' → Email capture or demo."
+      },
+      {
+        "text": "- For **security/compliance concerns**: Route to ${PLAYBOOK: Security & Compliance} for detailed handling."
+      },
+      {
+        "text": "- For **integration concerns**: Route to ${PLAYBOOK: Integrations & Deployment} for detailed handling."
+      },
+      {
+        "text": "- Keep responses to 1 sentence of reassurance + 1 sentence with next step. Always offer demo or email capture."
+      },
+      {
+        "text": "- Never make quantified ROI claims or promises not found in the data store results."
+      }
+    ]
+  },
+  "referencedTools": [
+    "marketing_knowledge_base"
+  ],
+  "referencedFlows": [
+    "Marketing Site Flow"
+  ],
+  "referencedPlaybooks": [
+    "Security & Compliance",
+    "Integrations & Deployment"
+  ],
+  "examples": [
+    {
+      "displayName": "Message Control Concern",
+      "conversationHistory": [
+        {
+          "userUtterance": {
+            "text": "How do I know it won't say something off-message?"
+          }
+        },
+        {
+          "toolUse": {
+            "tool": "marketing_knowledge_base",
+            "action": "INVOKED",
+            "inputActionParameters": {},
+            "outputActionParameters": {}
+          }
+        },
+        {
+          "agentUtterance": {
+            "text": "CivicAI answers only from your campaign-approved knowledge base—no improvising. Every response is auditable. Want to see it in action with a demo?"
+          }
+        }
+      ]
+    },
+    {
+      "displayName": "Setup Complexity Concern",
+      "conversationHistory": [
+        {
+          "userUtterance": {
+            "text": "This sounds complicated to set up"
+          }
+        },
+        {
+          "toolUse": {
+            "tool": "marketing_knowledge_base",
+            "action": "INVOKED",
+            "inputActionParameters": {},
+            "outputActionParameters": {}
+          }
+        },
+        {
+          "agentUtterance": {
+            "text": "Setup is no-code: add an embed snippet and load your approved content—you're live in under 30 minutes. Should I show you how easy it is with a quick demo?"
+          }
+        }
+      ]
+    },
+    {
+      "displayName": "Cost/ROI Concern",
+      "conversationHistory": [
+        {
+          "userUtterance": {
+            "text": "I'm not sure we can justify the cost"
+          }
+        },
+        {
+          "toolUse": {
+            "tool": "marketing_knowledge_base",
+            "action": "INVOKED",
+            "inputActionParameters": {},
+            "outputActionParameters": {}
+          }
+        },
+        {
+          "agentUtterance": {
+            "text": "We tailor pricing to your needs and volume, and our clients typically see increased conversion rates. Want us to email pricing details or set a quick demo to discuss ROI?"
+          }
+        }
+      ]
+    },
+    {
+      "displayName": "Competitive Question",
+      "conversationHistory": [
+        {
+          "userUtterance": {
+            "text": "Why not just use ChatGPT?"
+          }
+        },
+        {
+          "toolUse": {
+            "tool": "marketing_knowledge_base",
+            "action": "INVOKED",
+            "inputActionParameters": {},
+            "outputActionParameters": {}
+          }
+        },
+        {
+          "agentUtterance": {
+            "text": "CivicAI is purpose-built for campaigns with FEC compliance, approved messaging, and lead capture—ChatGPT can't guarantee that. Happy to show you side-by-side in a quick demo?"
+          }
+        }
+      ]
+    },
+    {
+      "displayName": "Security Concern - Route to Security Playbook",
+      "conversationHistory": [
+        {
+          "userUtterance": {
+            "text": "This seems risky from a security standpoint"
+          }
+        },
+        {
+          "playbookInvocation": {
+            "playbook": "Security & Compliance",
+            "playbookState": "IN_PROGRESS"
+          }
+        }
+      ]
+    }
+  ]
+}
