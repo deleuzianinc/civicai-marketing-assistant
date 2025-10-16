@@ -1,97 +1,39 @@
 {
-  "name": "4f5f09a6-c324-481a-9425-1d151c804e1c",
+  "name": "6b0ca70b-1ee7-46fd-81a6-8e397c041277",
   "displayName": "Entry Page",
-  "description": "Present menu options: Learn | Ask | Book Demo",
+  "description": "Flow entry point offering quick choices",
   "entryFulfillment": {
     "messages": [
       {
         "text": {
           "text": [
-            "Would you like to **learn what CivicAI is**, **ask a question**, or **book a demo**?"
+            "Welcome! I'm here to help you learn about CivicAI. Would you like to:",
+            "• Learn what CivicAI is",
+            "• Ask a specific question",
+            "• Book a demo"
           ]
-        }
+        },
+        "languageCode": "en"
       }
     ]
   },
-  "form": {
-    "parameters": []
-  },
   "transitionRoutes": [
     {
-      "intent": "demo.request",
-      "triggerFulfillment": {
-        "messages": [
-          {
-            "text": {
-              "text": [
-                "Great! Let me get a few details to schedule your demo."
-              ]
-            }
-          }
-        ]
-      },
-      "targetPage": "demo-capture-page"
+      "condition": "$session.params.user_intent == 'demo' OR $page.params.user_choice == 'demo'",
+      "targetPage": "DemoCapture Page",
+      "name": "demo-route"
     },
     {
-      "intent": "product.info",
-      "triggerFulfillment": {
-        "messages": [
-          {
-            "text": {
-              "text": [
-                "Let me help answer that for you."
-              ]
-            }
-          }
-        ]
-      },
-      "targetPage": "qna-page"
-    },
-    {
-      "intent": "pricing.inquiry",
-      "triggerFulfillment": {
-        "messages": [
-          {
-            "text": {
-              "text": [
-                "I can help with pricing information."
-              ]
-            }
-          }
-        ]
-      },
-      "targetPage": "qna-page"
-    },
-    {
-      "intent": "security.integration",
-      "triggerFulfillment": {
-        "messages": [
-          {
-            "text": {
-              "text": [
-                "Let me address your security or integration question."
-              ]
-            }
-          }
-        ]
-      },
-      "targetPage": "qna-page"
-    },
-    {
-      "intent": "handoff.request",
-      "triggerFulfillment": {
-        "messages": [
-          {
-            "text": {
-              "text": [
-                "I'll connect you with our team."
-              ]
-            }
-          }
-        ]
-      },
-      "targetPage": "handoff-page"
+      "condition": "$page.params.user_choice == 'learn' OR $page.params.user_choice == 'ask'",
+      "targetPage": "QnA Page",
+      "name": "qna-route"
     }
   ],
-  "eventHandlers": []
+  "eventHandlers": [
+    {
+      "event": "sys.no-match-default",
+      "targetPage": "QnA Page"
+    }
+  ]
 }
+

@@ -1,9 +1,7 @@
 {
-  "name": "aeed311d-a86a-46e9-bd76-1ab2ee2fb5fe",
+  "name": "00000000-0000-0000-0001-000000000006",
   "displayName": "handoff.request",
-  "trainingPhrases": [],
   "priority": 500000,
-  "isFallback": false,
-  "labels": {},
-  "description": "Escalation to human contact"
+  "numTrainingPhrases": 12
 }
+

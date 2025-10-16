@@ -1,7 +1,8 @@
 {
-  "name": "96c04f6b-051d-447a-b3a7-3a4b41ef732a",
+  "name": "a9266e42-4510-4491-8557-8079e0056614",
   "displayName": "Marketing Site Flow",
   "description": "Deterministic flow for qualification, demo capture, and email capture conversions",
+  "startPage": "6b0ca70b-1ee7-46fd-81a6-8e397c041277",
   "transitionRoutes": [],
   "eventHandlers": [],
   "transitionRouteGroups": [],
@@ -11,3 +12,4 @@
     "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC"
   }
 }
+

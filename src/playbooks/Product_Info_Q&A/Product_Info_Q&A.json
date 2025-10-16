@@ -1,150 +1,86 @@
 {
-  "name": "product-info-qa-routine-playbook",
+  "name": "3d3b0ab4-7564-4cd8-8098-8c346988742a",
   "displayName": "Product_Info_Q&A",
-  "goal": "Answer product questions using only approved marketing content, then offer a demo or email follow-up.",
-  "inputParameterDefinitions": [],
-  "outputParameterDefinitions": [],
-  "instruction": {
-    "steps": [
-      {
-        "text": "- You must use ${TOOL: marketing_knowledge_base} to answer all user questions. Do not answer without it."
+  "goal": "Answer product questions about CivicAI using the marketing knowledge base tool. Provide accurate, concise answers (2-4 sentences) that educate prospects about CivicAI's capabilities and value proposition. Detect buying signals and route to demo booking when appropriate. ALWAYS use the knowledge base tool first to ensure responses are grounded in approved marketing content.",
+  "outputParameterDefinitions": [
+    {
+      "name": "product_topic_discussed",
+      "description": "The specific product feature or capability discussed (e.g., 'knowledge base grounding', 'lead capture', 'conversational AI').",
+      "typeSchema": {
+        "inlineSchema": {
+          "type": "STRING"
+        }
       },
-      {
-        "text": "- If the tool returns useful content, answer in 2-4 sentences with crisp value props and, if relevant, short bullets."
-      },
-      {
-        "text": "- If the tool returns no content, say you don't have that detail and offer to book a demo or email a one-pager."
-      },
-      {
-        "text": "- For strong buying signals (\"pricing\", \"pilot\", \"timeline\", \"integration\") transition to ${FLOW: Marketing Site Flow}."
-      },
-      {
-        "text": "- Otherwise, ask if they'd like a quick demo or an email summary, then transition accordingly."
-      },
-      {
-        "text": "- Never fabricate features, capabilities, or details not found in the tool results."
-      },
-      {
-        "text": "- Keep responses under 4 sentences and use campaign-aware language: 'your campaign', 'voter engagement', 'donor acquisition'."
+      "parameterType": {
+        "name": "product_topic_discussed",
+        "openapiJsonSchema": {
+          "type": "string"
+        }
       }
-    ]
-  },
+    },
+    {
+      "name": "buying_signal_detected",
+      "description": "Whether the user showed strong buying intent (true/false) based on follow-up questions or demo interest.",
+      "typeSchema": {
+        "inlineSchema": {
+          "type": "BOOLEAN"
+        }
+      },
+      "parameterType": {
+        "name": "buying_signal_detected",
+        "openapiJsonSchema": {
+          "type": "boolean"
+        }
+      }
+    }
+  ],
+  "tokenCount": 380,
   "referencedTools": [
     "marketing_knowledge_base"
   ],
-  "referencedFlows": [
-    "Marketing Site Flow"
+  "referencedPlaybooks": [
+    "Pricing_&_Packaging",
+    "Security_&_Compliance",
+    "Integrations_&_Deployment"
   ],
-  "referencedPlaybooks": [],
-  "examples": [
-    {
-      "displayName": "Website Embed Question",
-      "conversationHistory": [
-        {
-          "userUtterance": {
-            "text": "How do you embed it on a website?"
-          }
-        },
-        {
-          "toolUse": {
-            "tool": "marketing_knowledge_base",
-            "action": "INVOKED",
-            "inputActionParameters": {},
-            "outputActionParameters": {}
-          }
-        },
-        {
-          "agentUtterance": {
-            "text": "CivicAI embeds on any website with a simple snippet—no coding required. You can customize the look and feel to match your campaign branding. Want to see it in action with a quick demo?"
-          }
-        }
-      ]
-    },
-    {
-      "displayName": "Integration Question",
-      "conversationHistory": [
-        {
-          "userUtterance": {
-            "text": "Does it integrate with NationBuilder?"
-          }
-        },
-        {
-          "toolUse": {
-            "tool": "marketing_knowledge_base",
-            "action": "INVOKED",
-            "inputActionParameters": {},
-            "outputActionParameters": {}
-          }
-        },
-        {
-          "agentUtterance": {
-            "text": "Yes, CivicAI integrates with NationBuilder through webhooks and Zapier to sync supporter data in real-time. Should I set up a demo to show you the integration in action?"
-          }
-        }
-      ]
-    },
-    {
-      "displayName": "Feature Not in Knowledge Base",
-      "conversationHistory": [
-        {
-          "userUtterance": {
-            "text": "Can it send SMS messages?"
-          }
-        },
-        {
-          "toolUse": {
-            "tool": "marketing_knowledge_base",
-            "action": "INVOKED",
-            "inputActionParameters": {},
-            "outputActionParameters": {}
-          }
-        },
-        {
-          "agentUtterance": {
-            "text": "I don't have that specific detail in my approved sources. I can connect you with our team to discuss SMS capabilities—would you like to book a quick demo or should I email you more information?"
-          }
-        }
-      ]
-    },
-    {
-      "displayName": "General Product Overview",
-      "conversationHistory": [
-        {
-          "userUtterance": {
-            "text": "Tell me about CivicAI"
-          }
-        },
-        {
-          "toolUse": {
-            "tool": "marketing_knowledge_base",
-            "action": "INVOKED",
-            "inputActionParameters": {},
-            "outputActionParameters": {}
-          }
-        },
-        {
-          "agentUtterance": {
-            "text": "CivicAI is a conversational AI platform that helps political campaigns convert website visitors into supporters. It answers voter questions, captures leads, and drives conversions—all while staying on-message with your campaign's approved content. Want a quick demo?"
-          }
-        }
-      ]
-    },
-    {
-      "displayName": "Strong Buying Signal - Route to Flow",
-      "conversationHistory": [
-        {
-          "userUtterance": {
-            "text": "This sounds great. What's your pricing and when can we start?"
-          }
-        },
-        {
-          "flowInvocation": {
-            "flow": "Marketing Site Flow",
-            "flowState": "IN_PROGRESS",
-            "inputActionParameters": {}
-          }
-        }
-      ]
-    }
-  ]
+  "referencedFlows": [
+    "a9266e42-4510-4491-8557-8079e0056614"
+  ],
+  "instruction": {
+    "steps": [
+      {
+        "text": "- ALWAYS invoke ${TOOL:marketing_knowledge_base} first before answering any product question"
+      },
+      {
+        "text": "- Use ONLY information from the knowledge base tool results to formulate your answer"
+      },
+      {
+        "text": "- Provide concise, accurate answers in 2-4 sentences"
+      },
+      {
+        "text": "- If the knowledge base returns no relevant information, respond: 'I don't have that specific detail. I'd be happy to connect you with our team or set up a quick demo to show you exactly how it works.'"
+      },
+      {
+        "text": "- After answering, include a call-to-action: 'Want to see it in action? Book a demo.' or 'Would you like to see how this works for your campaign?'"
+      },
+      {
+        "text": "- If user asks follow-up pricing questions: Route to ${PLAYBOOK:Pricing_&_Packaging}"
+      },
+      {
+        "text": "- If user asks about security: Route to ${PLAYBOOK:Security_&_Compliance}"
+      },
+      {
+        "text": "- If user asks about integrations: Route to ${PLAYBOOK:Integrations_&_Deployment}"
+      },
+      {
+        "text": "- If user expresses interest in demo or says 'yes' to demo offer: Route to ${FLOW:Marketing Site Flow}"
+      },
+      {
+        "text": "- Record product_topic_discussed and set buying_signal_detected=true if demo interest shown"
+      }
+    ]
+  },
+  "playbookType": "ROUTINE",
+  "codeBlock": {}
 }
+

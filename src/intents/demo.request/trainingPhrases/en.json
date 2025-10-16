@@ -1,139 +1,20 @@
 {
   "trainingPhrases": [
-    {
-      "parts": [
-        {
-          "text": "book a demo"
-        }
-      ],
-      "repeatCount": 1,
-      "languageCode": "en"
-    },
-    {
-      "parts": [
-        {
-          "text": "schedule a demo"
-        }
-      ],
-      "repeatCount": 1,
-      "languageCode": "en"
-    },
-    {
-      "parts": [
-        {
-          "text": "I want to see a demo"
-        }
-      ],
-      "repeatCount": 1,
-      "languageCode": "en"
-    },
-    {
-      "parts": [
-        {
-          "text": "show me a demo"
-        }
-      ],
-      "repeatCount": 1,
-      "languageCode": "en"
-    },
-    {
-      "parts": [
-        {
-          "text": "can I get a demo"
-        }
-      ],
-      "repeatCount": 1,
-      "languageCode": "en"
-    },
-    {
-      "parts": [
-        {
-          "text": "talk to sales"
-        }
-      ],
-      "repeatCount": 1,
-      "languageCode": "en"
-    },
-    {
-      "parts": [
-        {
-          "text": "schedule a call"
-        }
-      ],
-      "repeatCount": 1,
-      "languageCode": "en"
-    },
-    {
-      "parts": [
-        {
-          "text": "book a meeting"
-        }
-      ],
-      "repeatCount": 1,
-      "languageCode": "en"
-    },
-    {
-      "parts": [
-        {
-          "text": "I want to see it in action"
-        }
-      ],
-      "repeatCount": 1,
-      "languageCode": "en"
-    },
-    {
-      "parts": [
-        {
-          "text": "demo please"
-        }
-      ],
-      "repeatCount": 1,
-      "languageCode": "en"
-    },
-    {
-      "parts": [
-        {
-          "text": "set up a demo"
-        }
-      ],
-      "repeatCount": 1,
-      "languageCode": "en"
-    },
-    {
-      "parts": [
-        {
-          "text": "I'd like to schedule"
-        }
-      ],
-      "repeatCount": 1,
-      "languageCode": "en"
-    },
-    {
-      "parts": [
-        {
-          "text": "request a demo"
-        }
-      ],
-      "repeatCount": 1,
-      "languageCode": "en"
-    },
-    {
-      "parts": [
-        {
-          "text": "get started with a demo"
-        }
-      ],
-      "repeatCount": 1,
-      "languageCode": "en"
-    },
-    {
-      "parts": [
-        {
-          "text": "I'm ready to see it"
-        }
-      ],
-      "repeatCount": 1,
-      "languageCode": "en"
-    }
+    {"parts": [{"text": "book a demo"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "schedule a demo"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "I want a demo"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "show me a demo"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "request a demo"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "demo"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "see it in action"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "I'd like to see it"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "talk to sales"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "speak with sales"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "schedule a call"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "book demo"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "get a demo"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "can I see a demo"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "let's schedule a demo"}], "repeatCount": 1, "languageCode": "en"}
   ]
 }
+

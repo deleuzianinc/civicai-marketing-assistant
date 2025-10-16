@@ -1,5 +1,5 @@
 {
-  "name": "65f31ef8-fb3e-4958-b7c7-edbe6ab9b0c8",
+  "name": "382d37b5-2c69-4547-975b-4334d77ac29f",
   "displayName": "DemoCapture Page",
   "description": "Collect name, email, organization for demo booking",
   "entryFulfillment": {
@@ -7,9 +7,10 @@
       {
         "text": {
           "text": [
-            "I'll need a few details to schedule your demo."
+            "Great! I'll need a few details to schedule your demo."
           ]
-        }
+        },
+        "languageCode": "en"
       }
     ]
   },
@@ -167,3 +168,4 @@
     }
   ]
 }
+

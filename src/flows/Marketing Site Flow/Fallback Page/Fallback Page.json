@@ -1,37 +1,73 @@
 {
-  "name": "71670cd1-ed4d-466f-ab38-ea7aa744a4d7",
+  "name": "2c97f728-e435-462c-a610-d7146f2cd6aa",
   "displayName": "Fallback Page",
-  "description": "Recovery options for unmatched input",
+  "description": "Error recovery with menu options",
   "entryFulfillment": {
     "messages": [
       {
         "text": {
           "text": [
-            "I didn't quite catch that. Let me help you another way."
+            "I'm not sure I understood that. Let me help you in a different way.",
+            "",
+            "You can:",
+            "• Ask a question about CivicAI",
+            "• Learn about pricing and packages",
+            "• Book a demo",
+            "• Talk to our team",
+            "",
+            "What would you like to do?"
           ]
-        }
+        },
+        "languageCode": "en"
       }
     ]
   },
-  "form": {
-    "parameters": []
-  },
   "transitionRoutes": [
     {
+      "intent": "demo.request",
+      "targetPage": "DemoCapture Page",
+      "name": "demo-recovery-route"
+    },
+    {
+      "intent": "product.info",
+      "targetPage": "QnA Page",
+      "name": "product-recovery-route"
+    },
+    {
+      "intent": "pricing.inquiry",
+      "targetPlaybook": "Pricing_&_Packaging",
+      "name": "pricing-recovery-route"
+    },
+    {
+      "intent": "handoff.request",
+      "targetPage": "Handoff Page",
+      "name": "handoff-recovery-route"
+    },
+    {
       "condition": "true",
+      "targetPage": "QnA Page",
+      "name": "default-recovery-route"
+    }
+  ],
+  "eventHandlers": [
+    {
+      "event": "sys.no-match-default",
+      "targetPage": "QnA Page"
+    },
+    {
+      "event": "sys.no-input-default",
       "triggerFulfillment": {
         "messages": [
           {
             "text": {
               "text": [
-                "You can **learn what CivicAI is**, **ask a question**, or **book a demo**. What would you like to do?"
+                "I'm here to help whenever you're ready. Just let me know what you'd like to know about CivicAI."
               ]
             }
           }
         ]
-      },
-      "targetPage": "entry-page"
+      }
     }
-  ],
-  "eventHandlers": []
+  ]
 }
+

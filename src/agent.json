@@ -1,17 +1,10 @@
 {
-  "name": "projects/civicai-472317/locations/us-central1/agents/37728d1f-9fbb-41cf-8f83-5a35473e56e7",
   "displayName": "CivicAI Marketing Assistant",
   "defaultLanguageCode": "en",
-  "supportedLanguageCodes": [],
-  "timeZone": "America/New_York",
-  "description": "B2B lead qualification assistant for getcivicai.com that educates prospects about CivicAI, qualifies interest, and captures demo bookings and email leads.",
-  "avatarUri": "",
-  "enableStackdriverLogging": true,
+  "timeZone": "America/Chicago",
   "enableSpellCorrection": true,
+  "startFlow": "Default Start Flow",
   "startPlaybook": "Initial Triage",
-  "securitySettings": "",
-  "enableMultiLanguageTraining": false,
-  "locked": false,
   "advancedSettings": {
     "loggingSettings": {
       "enableStackdriverLogging": true,
@@ -19,3 +12,4 @@
     }
   }
 }
+

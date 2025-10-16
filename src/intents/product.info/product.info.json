@@ -1,9 +1,7 @@
 {
-  "name": "a44f33eb-a7fb-4f06-bda3-73388774ea5e",
+  "name": "00000000-0000-0000-0001-000000000002",
   "displayName": "product.info",
-  "trainingPhrases": [],
   "priority": 500000,
-  "isFallback": false,
-  "labels": {},
-  "description": "Trigger knowledge base search for product questions"
+  "numTrainingPhrases": 15
 }
+

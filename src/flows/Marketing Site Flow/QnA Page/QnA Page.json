@@ -1,68 +1,70 @@
 {
-  "name": "d6d8991f-ffe2-44d7-9102-14f2b030a1f0",
+  "name": "dc783382-7a9c-4c43-b206-c1b1897f662a",
   "displayName": "QnA Page",
-  "description": "Answer questions using Marketing Data Store Tool",
+  "description": "Generative responses with KB tool integration",
   "entryFulfillment": {
     "messages": [
       {
         "text": {
           "text": [
-            "Let me answer that for you."
+            "What would you like to know about CivicAI?"
           ]
-        }
+        },
+        "languageCode": "en"
       }
     ],
-    "enableGenerativeFallback": true
-  },
-  "form": {
-    "parameters": []
+    "enableGenerativeFallback": true,
+    "setParameterActions": [
+      {
+        "parameter": "generative_playbook",
+        "value": "Product_Info_Q&A"
+      }
+    ]
   },
   "transitionRoutes": [
     {
-      "condition": "$session.params.kb_confidence = \"not_found\"",
-      "triggerFulfillment": {
-        "messages": [
-          {
-            "text": {
-              "text": [
-                "I don't have that specific information in my approved sources. I can connect you with our team or set a quick demo—what's best?"
-              ]
-            }
-          }
-        ]
-      },
-      "targetPage": "entry-page"
+      "intent": "demo.request",
+      "targetPage": "Qualify Page",
+      "name": "demo-intent-route"
     },
     {
-      "condition": "$session.params.kb_confidence = \"found\" AND ($intent.displayName = \"pricing.inquiry\" OR $intent.displayName = \"security.integration\")",
-      "triggerFulfillment": {
-        "messages": [
-          {
-            "text": {
-              "text": [
-                "To better help you, let me ask a quick question about your needs."
-              ]
-            }
-          }
-        ]
-      },
-      "targetPage": "qualify-page"
+      "intent": "pricing.inquiry",
+      "targetPlaybook": "Pricing_&_Packaging",
+      "name": "pricing-playbook-route"
     },
     {
-      "condition": "$session.params.kb_confidence = \"found\"",
-      "triggerFulfillment": {
-        "messages": [
-          {
-            "text": {
-              "text": [
-                "Want to see it in action? Book a demo or I can email you more details."
-              ]
-            }
-          }
-        ]
-      },
-      "targetPage": "entry-page"
+      "intent": "security.integration",
+      "targetPlaybook": "Security_&_Compliance",
+      "name": "security-playbook-route"
+    },
+    {
+      "intent": "handoff.request",
+      "targetPage": "Handoff Page",
+      "name": "handoff-route"
     }
   ],
-  "eventHandlers": []
+  "eventHandlers": [
+    {
+      "event": "sys.no-match-default",
+      "triggerFulfillment": {
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "I'd be happy to help! You can ask about our product features, pricing, integrations, security, or book a demo. What interests you most?"
+              ]
+            }
+          }
+        ],
+        "enableGenerativeFallback": true,
+        "setParameterActions": [
+          {
+            "parameter": "generative_playbook",
+            "value": "Default Marketing Playbook"
+          }
+        ]
+      }
+    }
+  ]
 }
+

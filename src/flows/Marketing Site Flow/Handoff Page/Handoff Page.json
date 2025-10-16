@@ -1,5 +1,5 @@
 {
-  "name": "6f72da9d-3c86-4064-9838-5e8d6c7b0097",
+  "name": "9b501150-4dd3-4cc5-91e1-db8f3b0c7adb",
   "displayName": "Handoff Page",
   "description": "Human escalation with optional email capture",
   "entryFulfillment": {
@@ -7,9 +7,10 @@
       {
         "text": {
           "text": [
-            "I'll connect you with our team for personalized help."
+            "I'd be happy to connect you with our team."
           ]
-        }
+        },
+        "languageCode": "en"
       }
     ]
   },
@@ -24,15 +25,30 @@
               {
                 "text": {
                   "text": [
-                    "What's your email address so they can reach you?"
+                    "What's the best email for our team to reach you?"
                   ]
                 }
               }
             ]
           },
-          "repromptEventHandlers": []
+          "repromptEventHandlers": [
+            {
+              "event": "sys.no-match-default",
+              "triggerFulfillment": {
+                "messages": [
+                  {
+                    "text": {
+                      "text": [
+                        "Please provide a valid email address so our team can reach you."
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
         },
-        "required": false,
+        "required": true,
         "redact": false,
         "advancedSettings": {}
       }
@@ -41,10 +57,24 @@
   "transitionRoutes": [],
   "eventHandlers": [
     {
+      "event": "sys.no-input-default",
+      "triggerFulfillment": {
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "No problem. Let me know when you're ready to share your email."
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
       "event": "sys.form-filled",
       "triggerFulfillment": {
         "webhook": "lead_export_webhook",
-        "tag": "lead_export",
+        "tag": "handoff_request",
         "setParameterActions": [
           {
             "parameter": "conversion_type",
@@ -55,7 +85,7 @@
           {
             "text": {
               "text": [
-                "I've noted your request for human assistance. Our team will reach out shortly."
+                "Thanks! Our team will reach out to $session.params.visitor_email within one business day."
               ]
             }
           }
@@ -66,3 +96,4 @@
     }
   ]
 }
+

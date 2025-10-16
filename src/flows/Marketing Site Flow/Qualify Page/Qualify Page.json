@@ -1,15 +1,16 @@
 {
-  "name": "c517582b-e348-4ffa-97ca-f9e50db61d4d",
+  "name": "3a044423-45e2-4657-898a-456485b4f50d",
   "displayName": "Qualify Page",
-  "description": "Light qualification: campaign_status and visitor_role",
+  "description": "Collects campaign_status and visitor_role for lead qualification",
   "entryFulfillment": {
     "messages": [
       {
         "text": {
           "text": [
-            "To help you best, I'd like to understand your situation."
+            "To help me connect you with the right information, I have a couple quick questions."
           ]
-        }
+        },
+        "languageCode": "en"
       }
     ]
   },
@@ -17,14 +18,14 @@
     "parameters": [
       {
         "displayName": "campaign_status",
-        "entityType": "campaign_status",
+        "entityType": "@campaign_status",
         "fillBehavior": {
           "initialPromptFulfillment": {
             "messages": [
               {
                 "text": {
                   "text": [
-                    "Are you currently running an **active campaign**, in the **planning** stage, or just **researching** options?"
+                    "Is your campaign currently active, in planning, or are you still researching options?"
                   ]
                 }
               }
@@ -38,7 +39,7 @@
                   {
                     "text": {
                       "text": [
-                        "I didn't catch that. Are you active, planning, or researching?"
+                        "Please let me know if your campaign is: active, planning, or research phase."
                       ]
                     }
                   }
@@ -49,26 +50,41 @@
         },
         "required": true,
         "redact": false,
-        "advanced Settings": {}
+        "advancedSettings": {}
       },
       {
         "displayName": "visitor_role",
-        "entityType": "visitor_role",
+        "entityType": "@visitor_role",
         "fillBehavior": {
           "initialPromptFulfillment": {
             "messages": [
               {
                 "text": {
                   "text": [
-                    "Are you the **decision maker**, a **recommender**, or **researching** for your team?"
+                    "And are you the decision maker, a recommender/advisor, or researching for the team?"
                   ]
                 }
               }
             ]
           },
-          "repromptEventHandlers": []
+          "repromptEventHandlers": [
+            {
+              "event": "sys.no-match-default",
+              "triggerFulfillment": {
+                "messages": [
+                  {
+                    "text": {
+                      "text": [
+                        "Please select: decision maker, recommender, or researcher."
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
         },
-        "required": false,
+        "required": true,
         "redact": false,
         "advancedSettings": {}
       }
@@ -76,46 +92,30 @@
   },
   "transitionRoutes": [
     {
-      "condition": "$session.params.campaign_status = \"active\" AND $session.params.visitor_role = \"decision_maker\"",
+      "condition": "$session.params.campaign_status == 'active' AND $session.params.visitor_role == 'decision_maker'",
       "triggerFulfillment": {
         "setParameterActions": [
           {
             "parameter": "lead_tier",
             "value": "hot"
           }
-        ],
-        "messages": [
-          {
-            "text": {
-              "text": [
-                "Perfect! Since you're actively running a campaign, let's get you scheduled for a demo."
-              ]
-            }
-          }
         ]
       },
-      "targetPage": "demo-capture-page"
+      "targetPage": "DemoCapture Page",
+      "name": "hot-lead-demo-route"
     },
     {
-      "condition": "$session.params.campaign_status = \"active\" OR $session.params.campaign_status = \"planning\"",
+      "condition": "$session.params.campaign_status == 'active' OR $session.params.campaign_status == 'planning'",
       "triggerFulfillment": {
         "setParameterActions": [
           {
             "parameter": "lead_tier",
             "value": "warm"
           }
-        ],
-        "messages": [
-          {
-            "text": {
-              "text": [
-                "Great! Would you like to book a quick demo or should I email you more information?"
-              ]
-            }
-          }
         ]
       },
-      "targetPage": "entry-page"
+      "targetPage": "EmailCapture Page",
+      "name": "warm-lead-email-route"
     },
     {
       "condition": "true",
@@ -125,19 +125,27 @@
             "parameter": "lead_tier",
             "value": "cold"
           }
-        ],
+        ]
+      },
+      "targetPage": "EmailCapture Page",
+      "name": "cold-lead-email-route"
+    }
+  ],
+  "eventHandlers": [
+    {
+      "event": "sys.no-input-default",
+      "triggerFulfillment": {
         "messages": [
           {
             "text": {
               "text": [
-                "Thanks! I can email you a product overview—what's your email address?"
+                "Take your time. I'm here when you're ready to continue."
               ]
             }
           }
         ]
-      },
-      "targetPage": "email-capture-page"
+      }
     }
-  ],
-  "eventHandlers": []
+  ]
 }
+

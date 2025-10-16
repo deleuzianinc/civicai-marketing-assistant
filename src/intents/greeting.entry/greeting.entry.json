@@ -1,9 +1,7 @@
 {
-  "name": "a0638671-89e7-45ea-8aa9-7dc8fc0aaa0e",
+  "name": "00000000-0000-0000-0001-000000000001",
   "displayName": "greeting.entry",
-  "trainingPhrases": [],
   "priority": 500000,
-  "isFallback": false,
-  "labels": {},
-  "description": "Match initial visitor interaction"
+  "numTrainingPhrases": 15
 }
+

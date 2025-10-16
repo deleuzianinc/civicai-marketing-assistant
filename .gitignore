@@ -86,3 +86,13 @@ dialogflow_chroma_db/
 
 # Large zip files (if needed, can be added back)
 # civicai-combined.zip
+
+# Project-specific ignores
+docs/
+src_WORKING-EXAMPLE/
+src.bak/
+UUID_FIX_SUMMARY.md
+exported_flow_Default Start Flow.json
+FINAL_SOLUTION.md
+IMPLEMENTATION_SUMMARY.md
+IMPORT_INSTRUCTIONS.md

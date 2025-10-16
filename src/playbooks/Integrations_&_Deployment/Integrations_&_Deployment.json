@@ -1,0 +1,82 @@
+{
+  "name": "8ba336c0-72d1-4f30-9013-a0917f787f53",
+  "displayName": "Integrations_&_Deployment",
+  "goal": "Answer integration and deployment questions using the marketing knowledge base. Emphasize ease of deployment ('live in under 30 minutes') and available integrations. Provide specific information about CRM integrations, website platforms, SSO options, webhooks, and API capabilities. Route to demo for technical implementation discussions.",
+  "outputParameterDefinitions": [
+    {
+      "name": "integration_interest",
+      "description": "The specific integration or platform the user asked about (e.g., 'HubSpot', 'Salesforce', 'Webflow', 'Google SSO', 'webhooks', 'API').",
+      "typeSchema": {
+        "inlineSchema": {
+          "type": "STRING"
+        }
+      },
+      "parameterType": {
+        "name": "integration_interest",
+        "openapiJsonSchema": {
+          "type": "string"
+        }
+      }
+    },
+    {
+      "name": "deployment_concern",
+      "description": "Any deployment concern raised (e.g., 'setup_time', 'technical_complexity', 'no_code_requirement').",
+      "typeSchema": {
+        "inlineSchema": {
+          "type": "STRING"
+        }
+      },
+      "parameterType": {
+        "name": "deployment_concern",
+        "openapiJsonSchema": {
+          "type": "string"
+        }
+      }
+    }
+  ],
+  "tokenCount": 360,
+  "referencedTools": [
+    "marketing_knowledge_base"
+  ],
+  "referencedPlaybooks": [
+    "Product_Info_Q&A",
+    "Security_&_Compliance"
+  ],
+  "referencedFlows": [
+    "a9266e42-4510-4491-8557-8079e0056614"
+  ],
+  "instruction": {
+    "steps": [
+      {
+        "text": "- ALWAYS invoke ${TOOL:marketing_knowledge_base} first to search for integration and deployment information"
+      },
+      {
+        "text": "- For deployment timeline questions: Emphasize 'You can be live in under 30 minutes' message if in knowledge base"
+      },
+      {
+        "text": "- For specific integration questions (HubSpot, Salesforce, etc.): Provide accurate information from knowledge base, or if not available: 'We offer flexible integration options. I can connect you with our team to discuss your specific tech stack. Would a demo work?'"
+      },
+      {
+        "text": "- For setup complexity concerns: Reassure with 'no technical expertise required' message, offer to show ease of setup in demo"
+      },
+      {
+        "text": "- For webhook/API questions: Use knowledge base information, offer technical documentation review in demo"
+      },
+      {
+        "text": "- If user shifts to security questions: Route to ${PLAYBOOK:Security_&_Compliance}"
+      },
+      {
+        "text": "- If user wants to see deployment process: Route to ${FLOW:Marketing Site Flow} for demo"
+      },
+      {
+        "text": "- Always end with: 'Want to see how quick and easy setup is? I can show you in a 10-minute demo.'"
+      },
+      {
+        "text": "- Record integration_interest and deployment_concern for lead intelligence"
+      }
+    ]
+  },
+  "playbookType": "ROUTINE",
+  "codeBlock": {}
+}
+

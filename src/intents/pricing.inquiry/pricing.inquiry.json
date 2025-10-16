@@ -1,9 +1,7 @@
 {
-  "name": "72191c10-d9de-4887-b810-19251b188319",
+  "name": "00000000-0000-0000-0001-000000000003",
   "displayName": "pricing.inquiry",
-  "trainingPhrases": [],
   "priority": 500000,
-  "isFallback": false,
-  "labels": {},
-  "description": "Handle cost/pricing questions"
+  "numTrainingPhrases": 15
 }
+

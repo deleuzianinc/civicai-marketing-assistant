@@ -1,8 +1,8 @@
 {
-  "name": "1c4a1051-aafe-41bc-ac85-93600a17f247",
+  "name": "cb32adef-cbd5-48c3-8e7b-f4eaec665e4e",
   "displayName": "lead_export_webhook",
   "genericWebService": {
-    "uri": "https://us-central1-civicai-472317.cloudfunctions.net/lead-export",
+    "uri": "https://us-central1-YOUR_PROJECT_ID.cloudfunctions.net/civicai-lead-export",
     "username": "",
     "password": "",
     "requestHeaders": {},
@@ -17,3 +17,4 @@
   "timeout": "10s",
   "disabled": false
 }
+

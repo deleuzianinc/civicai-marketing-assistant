@@ -1,15 +1,16 @@
 {
-  "name": "00ab5090-a882-44a3-88ed-dd7d0640def5",
+  "name": "5d5d0ae2-946f-4094-afe3-c79d1b5fcae4",
   "displayName": "EmailCapture Page",
-  "description": "Collect email only for nurture follow-up",
+  "description": "Collect email for follow-up and nurture",
   "entryFulfillment": {
     "messages": [
       {
         "text": {
           "text": [
-            "I'll email you more information about CivicAI."
+            "I'd be happy to send you more information about CivicAI."
           ]
-        }
+        },
+        "languageCode": "en"
       }
     ]
   },
@@ -24,7 +25,7 @@
               {
                 "text": {
                   "text": [
-                    "What's your email address?"
+                    "What's the best email to send you product information?"
                   ]
                 }
               }
@@ -56,6 +57,20 @@
   "transitionRoutes": [],
   "eventHandlers": [
     {
+      "event": "sys.no-input-default",
+      "triggerFulfillment": {
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "Take your time. I'm here when you're ready."
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
       "event": "sys.form-filled",
       "triggerFulfillment": {
         "webhook": "lead_export_webhook",
@@ -63,14 +78,14 @@
         "setParameterActions": [
           {
             "parameter": "conversion_type",
-            "value": "email"
+            "value": "email_capture"
           }
         ],
         "messages": [
           {
             "text": {
               "text": [
-                "Got it. We'll send a short overview to your email."
+                "Perfect! We'll send you more information about CivicAI to $session.params.visitor_email. You can also book a demo anytime at getcivicai.com."
               ]
             }
           }
@@ -81,3 +96,4 @@
     }
   ]
 }
+

@@ -1,11 +1,40 @@
 {
-  "name": "443b3b79-9e93-4f88-a661-dfedb0d06cde",
+  "name": "c5f11cfd-4117-4bf5-9fe6-105084526022",
   "displayName": "marketing_knowledge_base",
-  "description": "Search CivicAI marketing website content (getcivicai.com) to answer product, pricing, security, and integration questions with approved marketing language only.",
-  "dataStores": [
-    "projects/civicai-472317/locations/global/collections/default_collection/dataStores/civicai-marketing-content"
-  ],
-  "fallbackPrompt": {
-    "promptTemplateText": "The question cannot be answered using the available information. Respond with: 'I don't have that specific information in my approved sources. I can connect you with our team or set a quick demo—what's best?'"
-  }
+  "description": "Use the marketing knowledge base when answering questions about CivicAI's product features, pricing, integrations, security, and deployment. Always search the knowledge base first before responding to ensure accurate, approved marketing information.",
+  "dataStoreSpec": {
+    "dataStoreConnections": [
+      {
+        "dataStoreType": "UNSTRUCTURED",
+        "dataStore": "projects/YOUR_PROJECT_ID/locations/us/collections/default_collection/dataStores/civicai-marketing-content",
+        "documentProcessingMode": "DOCUMENTS",
+        "engineType": "CHAT_ENGINE",
+        "connectorConfig": {},
+        "displayName": "civicai_marketing_content"
+      }
+    ],
+    "models": {
+      "summarizationModel": {
+        "model": "gemini_20_flash_001",
+        "promptText": "Given the conversation between a Human and an AI assistant and a list of sources containing CivicAI product information, write a comprehensive final answer for the AI assistant.\n\n## Core Guidelines:\n+ Answer the Human's query about CivicAI's product, features, pricing, or capabilities using ONLY information from the provided sources\n+ Use the exact language and terminology from the sources whenever possible to maintain accuracy and brand consistency\n+ All specific details (features, pricing, integration names, technical specifications) must appear exactly as written in the sources\n+ Provide a complete and comprehensive answer that covers all relevant aspects found in the sources\n+ If multiple sources address the same topic, synthesize them into a coherent response\n+ The answer MUST be in English and maintain a professional, B2B SaaS tone appropriate for potential customers\n\n## Product-Specific Instructions:\n+ When answering about product features, include specific capabilities and use cases mentioned in the sources\n+ For pricing questions, only mention pricing if explicitly stated in sources - otherwise indicate pricing depends on needs and offer demo\n+ Include any mentioned implementation timelines, technical requirements, or ROI metrics exactly as stated\n+ Reference any specific integrations, platforms, or technologies mentioned by name\n+ If discussing competitive advantages, focus only on CivicAI's strengths without negative claims about competitors\n\n## Response Framework:\n+ Lead with a clear, direct answer to the question\n+ Follow with specific product details and capabilities from the sources\n+ Include implementation or deployment information if mentioned\n+ End with a clear call-to-action (demo booking or email capture) when appropriate\n+ Keep responses concise (2-4 sentences) and actionable\n\n## Fallback Protocol:\n+ If no relevant information is found in the sources, respond: \"I don't have that specific information in my current knowledge base. I'd be happy to connect you with our team for detailed information. Would you like to book a demo or have someone email you more details?\"\n+ Do NOT attempt to infer, extrapolate, or provide general information not found in the sources\n+ NEVER fabricate pricing, features, or technical specifications\n\n## Examples:\n\nExample 1:\nSources:\n[1] CivicAI Product Overview\nCivicAI is a conversational AI platform designed specifically for political campaigns. It transforms website visitors into supporters through intelligent, on-message chat experiences. The platform uses knowledge base-grounded responses to ensure every answer aligns with your campaign's approved messaging.\n\nH: What is CivicAI?\nAI: CivicAI is a conversational AI platform designed specifically for political campaigns that transforms website visitors into supporters through intelligent, on-message chat experiences. The platform uses knowledge base-grounded responses to ensure every answer aligns with your campaign's approved messaging. Want to see it in action? Book a demo.\n\nExample 2:\nSources:\n[1] Deployment Information\nCivicAI can be deployed to your campaign website in under 30 minutes. Simply add our embed code to your site and connect your approved content. No technical expertise required.\n\nH: How long does setup take?\nAI: CivicAI can be deployed to your campaign website in under 30 minutes. Simply add our embed code to your site and connect your approved content - no technical expertise required. Would you like to see how easy it is in a quick demo?\n\nExample 3:\nSources:\n[1] Feature List\nCivicAI offers intelligent Q&A, lead capture, donor qualification, and volunteer recruitment funnels.\n\nH: What's your GDPR compliance status?\nAI: I don't have that specific information in my current knowledge base. I'd be happy to connect you with our team for detailed information. Would you like to book a demo or have someone email you more details?\n\n## Important Notes:\n+ Always prioritize accuracy over completeness - only include information explicitly stated in the sources\n+ Maintain CivicAI's professional B2B SaaS tone\n+ Focus on benefits and outcomes for political campaigns\n+ Every response should include a clear next step (demo or email capture)\n\nBegin! Let's work this out step by step to be sure we have the right answer.\n\nSources:\n$sources\n\n$conversation\nHuman: $original-query\nAI:"
+      },
+      "rewriterModel": {
+        "model": "default"
+      }
+    },
+    "groundingSettings": {
+      "groundingConfidence": "HIGH"
+    },
+    "payloadSettings": {
+      "enableSnippetsPayload": true,
+      "maxSnippetsCount": 5
+    },
+    "mode": "MODE_CUSTOM"
+  },
+  "authentication": {
+    "type": "service_agent_auth",
+    "tokenType": "id_token"
+  },
+  "toolType": "CUSTOMIZED_TOOL"
 }
+

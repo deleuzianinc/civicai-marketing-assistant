@@ -1,9 +1,7 @@
 {
-  "name": "dc9a2f16-2964-451f-baa0-7bdf2abacd6d",
+  "name": "00000000-0000-0000-0001-000000000005",
   "displayName": "security.integration",
-  "trainingPhrases": [],
   "priority": 500000,
-  "isFallback": false,
-  "labels": {},
-  "description": "Handle security, compliance, integration questions"
+  "numTrainingPhrases": 15
 }
+
