@@ -1,0 +1,151 @@
+{
+  "name": "3a044423-45e2-4657-898a-456485b4f50d",
+  "displayName": "Qualify Page",
+  "description": "Collects campaign_status and visitor_role for lead qualification",
+  "entryFulfillment": {
+    "messages": [
+      {
+        "text": {
+          "text": [
+            "To help me connect you with the right information, I have a couple quick questions."
+          ]
+        },
+        "languageCode": "en"
+      }
+    ]
+  },
+  "form": {
+    "parameters": [
+      {
+        "displayName": "campaign_status",
+        "entityType": "@campaign_status",
+        "fillBehavior": {
+          "initialPromptFulfillment": {
+            "messages": [
+              {
+                "text": {
+                  "text": [
+                    "Is your campaign currently active, in planning, or are you still researching options?"
+                  ]
+                }
+              }
+            ]
+          },
+          "repromptEventHandlers": [
+            {
+              "event": "sys.no-match-default",
+              "triggerFulfillment": {
+                "messages": [
+                  {
+                    "text": {
+                      "text": [
+                        "Please let me know if your campaign is: active, planning, or research phase."
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "required": true,
+        "redact": false,
+        "advancedSettings": {}
+      },
+      {
+        "displayName": "visitor_role",
+        "entityType": "@visitor_role",
+        "fillBehavior": {
+          "initialPromptFulfillment": {
+            "messages": [
+              {
+                "text": {
+                  "text": [
+                    "And are you the decision maker, a recommender/advisor, or researching for the team?"
+                  ]
+                }
+              }
+            ]
+          },
+          "repromptEventHandlers": [
+            {
+              "event": "sys.no-match-default",
+              "triggerFulfillment": {
+                "messages": [
+                  {
+                    "text": {
+                      "text": [
+                        "Please select: decision maker, recommender, or researcher."
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "required": true,
+        "redact": false,
+        "advancedSettings": {}
+      }
+    ]
+  },
+  "transitionRoutes": [
+    {
+      "condition": "$session.params.campaign_status == 'active' AND $session.params.visitor_role == 'decision_maker'",
+      "triggerFulfillment": {
+        "setParameterActions": [
+          {
+            "parameter": "lead_tier",
+            "value": "hot"
+          }
+        ]
+      },
+      "targetPage": "DemoCapture Page",
+      "name": "hot-lead-demo-route"
+    },
+    {
+      "condition": "$session.params.campaign_status == 'active' OR $session.params.campaign_status == 'planning'",
+      "triggerFulfillment": {
+        "setParameterActions": [
+          {
+            "parameter": "lead_tier",
+            "value": "warm"
+          }
+        ]
+      },
+      "targetPage": "EmailCapture Page",
+      "name": "warm-lead-email-route"
+    },
+    {
+      "condition": "true",
+      "triggerFulfillment": {
+        "setParameterActions": [
+          {
+            "parameter": "lead_tier",
+            "value": "cold"
+          }
+        ]
+      },
+      "targetPage": "EmailCapture Page",
+      "name": "cold-lead-email-route"
+    }
+  ],
+  "eventHandlers": [
+    {
+      "event": "sys.no-input-default",
+      "triggerFulfillment": {
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "Take your time. I'm here when you're ready to continue."
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+

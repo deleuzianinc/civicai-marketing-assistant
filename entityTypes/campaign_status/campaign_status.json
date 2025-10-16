@@ -1,0 +1,44 @@
+{
+  "name": "4d18eb49-e7fe-4330-bb26-e330854e89a5",
+  "displayName": "campaign_status",
+  "kind": "KIND_MAP",
+  "autoExpansionMode": "AUTO_EXPANSION_MODE_DEFAULT",
+  "entities": [
+    {
+      "value": "active",
+      "synonyms": [
+        "active",
+        "running",
+        "live",
+        "currently running",
+        "actively fundraising",
+        "active campaign"
+      ]
+    },
+    {
+      "value": "planning",
+      "synonyms": [
+        "planning",
+        "preparing",
+        "getting ready",
+        "planning stage",
+        "in planning"
+      ]
+    },
+    {
+      "value": "research",
+      "synonyms": [
+        "research",
+        "researching",
+        "exploring",
+        "just looking",
+        "exploring options",
+        "doing research"
+      ]
+    }
+  ],
+  "excludedPhrases": [],
+  "enableFuzzyExtraction": false,
+  "redact": false
+}
+

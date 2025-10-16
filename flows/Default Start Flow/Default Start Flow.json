@@ -1,0 +1,84 @@
+{
+  "name": "00000000-0000-0000-0000-000000000000",
+  "displayName": "Default Start Flow",
+  "description": "A start flow created along with the agent",
+  "transitionRoutes": [
+    {
+      "intent": "greeting.entry",
+      "targetPlaybook": "Initial Triage",
+      "name": "greeting-route"
+    },
+    {
+      "intent": "product.info",
+      "targetPlaybook": "Initial Triage",
+      "name": "product-route"
+    },
+    {
+      "intent": "pricing.inquiry",
+      "targetPlaybook": "Initial Triage",
+      "name": "pricing-route"
+    },
+    {
+      "intent": "demo.request",
+      "targetPlaybook": "Initial Triage",
+      "name": "demo-route"
+    },
+    {
+      "intent": "security.integration",
+      "targetPlaybook": "Initial Triage",
+      "name": "security-route"
+    },
+    {
+      "intent": "handoff.request",
+      "targetPlaybook": "Initial Triage",
+      "name": "handoff-route"
+    },
+    {
+      "condition": "true",
+      "targetPlaybook": "Initial Triage",
+      "name": "default-entry-route"
+    }
+  ],
+  "eventHandlers": [
+    {
+      "event": "sys.no-match-default",
+      "triggerFulfillment": {
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "I'm not sure I understood that. Could you ask me about our product, pricing, booking a demo, or integrations?",
+                "Let me help you better. You can ask me about CivicAI features, pricing, security, or schedule a demo. What interests you most?",
+                "I'd love to help! Try asking me about product features, pricing, integrations, or booking a demo. What would you like to know?"
+              ]
+            },
+            "languageCode": "en"
+          }
+        ]
+      },
+      "name": "no-match-handler"
+    },
+    {
+      "event": "sys.no-input-default",
+      "triggerFulfillment": {
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "I didn't hear anything. Feel free to ask me about CivicAI's features, pricing, or booking a demo. I'm here to help!",
+                "No worries! You can ask me about our product, pricing, integrations, or schedule a demo. What would you like to know?",
+                "I'm ready to help! Try asking me about features, pricing, security, or booking a demo. What interests you?"
+              ]
+            },
+            "languageCode": "en"
+          }
+        ]
+      },
+      "name": "no-input-handler"
+    }
+  ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_ADVANCED",
+    "classificationThreshold": 0.3
+  }
+}

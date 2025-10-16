@@ -1,0 +1,87 @@
+{
+  "name": "45bee10b-faa5-42a0-a6b2-6affa3879f4c",
+  "displayName": "Objection_Handling",
+  "goal": "Handle objections and competitive questions by searching the knowledge base for approved responses. Address concerns about message control, setup complexity, cost/ROI, and competitive alternatives. NEVER make negative claims about competitors - instead, pivot to CivicAI's unique strengths and differentiators. Build confidence and route to specialist playbooks or demo as appropriate.",
+  "outputParameterDefinitions": [
+    {
+      "name": "objection_type",
+      "description": "The type of objection raised (e.g., 'message_control', 'setup_complexity', 'cost_concern', 'competitive_comparison', 'ROI_doubt').",
+      "typeSchema": {
+        "inlineSchema": {
+          "type": "STRING"
+        }
+      },
+      "parameterType": {
+        "name": "objection_type",
+        "openapiJsonSchema": {
+          "type": "string"
+        }
+      }
+    },
+    {
+      "name": "objection_resolved",
+      "description": "Whether the objection was successfully addressed (true/false) based on user's follow-up response.",
+      "typeSchema": {
+        "inlineSchema": {
+          "type": "BOOLEAN"
+        }
+      },
+      "parameterType": {
+        "name": "objection_resolved",
+        "openapiJsonSchema": {
+          "type": "boolean"
+        }
+      }
+    }
+  ],
+  "tokenCount": 370,
+  "referencedTools": [
+    "marketing_knowledge_base"
+  ],
+  "referencedPlaybooks": [
+    "Product_Info_Q&A",
+    "Pricing_&_Packaging",
+    "Security_&_Compliance",
+    "Integrations_&_Deployment"
+  ],
+  "referencedFlows": [
+    "a9266e42-4510-4491-8557-8079e0056614"
+  ],
+  "instruction": {
+    "steps": [
+      {
+        "text": "- ALWAYS invoke ${TOOL:marketing_knowledge_base} first to search for objection handling guidance"
+      },
+      {
+        "text": "- For message control concerns: 'CivicAI answers only from your campaign-approved knowledge base. Every response is auditable and on-message. You maintain complete control.' Then offer demo."
+      },
+      {
+        "text": "- For setup complexity: 'Setup is no-code: add an embed snippet and load your approved content. You can be live in under 30 minutes. Want to see how easy it is?'"
+      },
+      {
+        "text": "- For cost/ROI concerns: 'We tailor pricing to your needs and volume. Many campaigns see ROI within the first month through increased conversions. Want to discuss your specific goals and see if it's a fit?'"
+      },
+      {
+        "text": "- For competitive questions (e.g., 'Why not ChatGPT?'): Focus on CivicAI's campaign-specific advantages from knowledge base. NEVER disparage competitors. Example: 'Unlike general AI tools, CivicAI is built specifically for political campaigns with knowledge base grounding, FEC-compliant donation flows, and volunteer recruitment funnels.'"
+      },
+      {
+        "text": "- If objection shifts to pricing details: Route to ${PLAYBOOK:Pricing_&_Packaging}"
+      },
+      {
+        "text": "- If objection shifts to security: Route to ${PLAYBOOK:Security_&_Compliance}"
+      },
+      {
+        "text": "- If objection shifts to integrations: Route to ${PLAYBOOK:Integrations_&_Deployment}"
+      },
+      {
+        "text": "- If objection seems resolved and user shows interest: Route to ${FLOW:Marketing Site Flow}"
+      },
+      {
+        "text": "- Record objection_type and set objection_resolved based on user response"
+      }
+    ]
+  },
+  "playbookType": "ROUTINE",
+  "codeBlock": {}
+}
+

@@ -1,0 +1,17 @@
+{
+  "trainingPhrases": [
+    {"parts": [{"text": "talk to a person"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "speak to a human"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "I need a human"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "human please"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "talk to someone"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "speak with a person"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "real person"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "contact your team"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "speak to your team"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "talk to support"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "connect me with someone"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "I want to talk to a real person"}], "repeatCount": 1, "languageCode": "en"}
+  ]
+}
+

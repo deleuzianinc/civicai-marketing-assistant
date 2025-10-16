@@ -1,0 +1,20 @@
+{
+  "trainingPhrases": [
+    {"parts": [{"text": "is it secure"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "security"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "compliance"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "are you SOC2 compliant"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "integrations"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "does it integrate with"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "what integrations do you have"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "data security"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "how secure is it"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "data protection"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "privacy"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "does it work with Salesforce"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "integration options"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "API"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "security features"}], "repeatCount": 1, "languageCode": "en"}
+  ]
+}
+

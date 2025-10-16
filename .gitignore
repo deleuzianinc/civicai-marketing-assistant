@@ -1,31 +1,49 @@
-# Ignore everything except Dialogflow CX structure
-*
+# Ignore everything at root level except Dialogflow CX structure
+/*
 
-# Allow Dialogflow CX directories and files
-!agent.json
-!entityTypes/
-!flows/
-!intents/
-!playbooks/
-!testCases/
-!versionConfigs/
-!webhooks/
+# Allow Dialogflow CX root files and directories
+!/.gitignore
+!/README.md
+!/agent.json
+!/entityTypes/
+!/flows/
+!/intents/
+!/playbooks/
+!/testCases/
+!/versionConfigs/
+!/webhooks/
 
-# Allow files within Dialogflow CX directories
-!entityTypes/**/*.json
-!flows/**/*.json
-!intents/**/*.json
-!playbooks/**/*.json
-!testCases/**/*.json
-!versionConfigs/**/*.json
-!webhooks/**/*.json
-
-# Ignore common temporary and system files within Dialogflow CX directories
-**/.*.swp
-**/.*.swo
-**/.*~
+# Ignore common temporary and system files
 **/.DS_Store
 **/Thumbs.db
 **/*.log
 **/*.tmp
 **/*.temp
+**/.*.swp
+**/.*.swo
+**/.*~
+
+# Ignore development/IDE files
+.idea/
+.vscode/
+*.iml
+
+# Ignore virtual environments
+.venv/
+venv/
+env/
+
+# Ignore local databases
+*.db
+*.sqlite3
+dialogflow_chroma_db/
+
+# Ignore backup directories
+*.bak/
+*_WORKING-EXAMPLE/
+docs/
+.mcp/
+
+# Ignore specific files
+*.zip
+CLAUDE.md

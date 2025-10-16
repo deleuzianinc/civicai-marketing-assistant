@@ -1,0 +1,171 @@
+{
+  "name": "382d37b5-2c69-4547-975b-4334d77ac29f",
+  "displayName": "DemoCapture Page",
+  "description": "Collect name, email, organization for demo booking",
+  "entryFulfillment": {
+    "messages": [
+      {
+        "text": {
+          "text": [
+            "Great! I'll need a few details to schedule your demo."
+          ]
+        },
+        "languageCode": "en"
+      }
+    ]
+  },
+  "form": {
+    "parameters": [
+      {
+        "displayName": "visitor_name",
+        "entityType": "sys.any",
+        "fillBehavior": {
+          "initialPromptFulfillment": {
+            "messages": [
+              {
+                "text": {
+                  "text": [
+                    "What's your name?"
+                  ]
+                }
+              }
+            ]
+          },
+          "repromptEventHandlers": [
+            {
+              "event": "sys.no-match-default",
+              "triggerFulfillment": {
+                "messages": [
+                  {
+                    "text": {
+                      "text": [
+                        "I need your name to schedule the demo."
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "required": true,
+        "redact": false,
+        "advancedSettings": {}
+      },
+      {
+        "displayName": "visitor_email",
+        "entityType": "sys.email",
+        "fillBehavior": {
+          "initialPromptFulfillment": {
+            "messages": [
+              {
+                "text": {
+                  "text": [
+                    "And your email address?"
+                  ]
+                }
+              }
+            ]
+          },
+          "repromptEventHandlers": [
+            {
+              "event": "sys.no-match-default",
+              "triggerFulfillment": {
+                "messages": [
+                  {
+                    "text": {
+                      "text": [
+                        "Please provide a valid email address."
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "required": true,
+        "redact": false,
+        "advancedSettings": {}
+      },
+      {
+        "displayName": "organization_name",
+        "entityType": "sys.any",
+        "fillBehavior": {
+          "initialPromptFulfillment": {
+            "messages": [
+              {
+                "text": {
+                  "text": [
+                    "What campaign or organization are you with?"
+                  ]
+                }
+              }
+            ]
+          },
+          "repromptEventHandlers": [
+            {
+              "event": "sys.no-match-default",
+              "triggerFulfillment": {
+                "messages": [
+                  {
+                    "text": {
+                      "text": [
+                        "I need your organization name to prepare for the demo."
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "required": true,
+        "redact": false,
+        "advancedSettings": {}
+      }
+    ]
+  },
+  "transitionRoutes": [],
+  "eventHandlers": [
+    {
+      "event": "sys.no-input-default",
+      "triggerFulfillment": {
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "Are you still there? Let me know when you're ready to continue."
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "event": "sys.form-filled",
+      "triggerFulfillment": {
+        "webhook": "lead_export_webhook",
+        "tag": "lead_export",
+        "setParameterActions": [
+          {
+            "parameter": "conversion_type",
+            "value": "demo"
+          }
+        ],
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "Thanks, $session.params.visitor_name! We've received your details and will follow up shortly to schedule your demo."
+              ]
+            }
+          }
+        ]
+      },
+      "targetFlow": "00000000-0000-0000-0000-000000000000",
+      "targetPage": "END_FLOW"
+    }
+  ]
+}
+

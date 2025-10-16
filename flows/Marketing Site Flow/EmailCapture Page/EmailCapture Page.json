@@ -1,0 +1,99 @@
+{
+  "name": "5d5d0ae2-946f-4094-afe3-c79d1b5fcae4",
+  "displayName": "EmailCapture Page",
+  "description": "Collect email for follow-up and nurture",
+  "entryFulfillment": {
+    "messages": [
+      {
+        "text": {
+          "text": [
+            "I'd be happy to send you more information about CivicAI."
+          ]
+        },
+        "languageCode": "en"
+      }
+    ]
+  },
+  "form": {
+    "parameters": [
+      {
+        "displayName": "visitor_email",
+        "entityType": "sys.email",
+        "fillBehavior": {
+          "initialPromptFulfillment": {
+            "messages": [
+              {
+                "text": {
+                  "text": [
+                    "What's the best email to send you product information?"
+                  ]
+                }
+              }
+            ]
+          },
+          "repromptEventHandlers": [
+            {
+              "event": "sys.no-match-default",
+              "triggerFulfillment": {
+                "messages": [
+                  {
+                    "text": {
+                      "text": [
+                        "Please provide a valid email address."
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "required": true,
+        "redact": false,
+        "advancedSettings": {}
+      }
+    ]
+  },
+  "transitionRoutes": [],
+  "eventHandlers": [
+    {
+      "event": "sys.no-input-default",
+      "triggerFulfillment": {
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "Take your time. I'm here when you're ready."
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "event": "sys.form-filled",
+      "triggerFulfillment": {
+        "webhook": "lead_export_webhook",
+        "tag": "lead_export",
+        "setParameterActions": [
+          {
+            "parameter": "conversion_type",
+            "value": "email_capture"
+          }
+        ],
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "Perfect! We'll send you more information about CivicAI to $session.params.visitor_email. You can also book a demo anytime at getcivicai.com."
+              ]
+            }
+          }
+        ]
+      },
+      "targetFlow": "00000000-0000-0000-0000-000000000000",
+      "targetPage": "END_FLOW"
+    }
+  ]
+}
+

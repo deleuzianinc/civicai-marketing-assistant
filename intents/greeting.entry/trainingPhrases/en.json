@@ -1,0 +1,20 @@
+{
+  "trainingPhrases": [
+    {"parts": [{"text": "hi"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "hello"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "hey"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "hey there"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "good morning"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "good afternoon"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "greetings"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "get started"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "I'm here"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "let's begin"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "start"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "welcome"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "help me"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "I need help"}], "repeatCount": 1, "languageCode": "en"},
+    {"parts": [{"text": "hello there"}], "repeatCount": 1, "languageCode": "en"}
+  ]
+}
+

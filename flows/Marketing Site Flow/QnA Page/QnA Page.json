@@ -1,0 +1,70 @@
+{
+  "name": "dc783382-7a9c-4c43-b206-c1b1897f662a",
+  "displayName": "QnA Page",
+  "description": "Generative responses with KB tool integration",
+  "entryFulfillment": {
+    "messages": [
+      {
+        "text": {
+          "text": [
+            "What would you like to know about CivicAI?"
+          ]
+        },
+        "languageCode": "en"
+      }
+    ],
+    "enableGenerativeFallback": true,
+    "setParameterActions": [
+      {
+        "parameter": "generative_playbook",
+        "value": "Product_Info_Q&A"
+      }
+    ]
+  },
+  "transitionRoutes": [
+    {
+      "intent": "demo.request",
+      "targetPage": "Qualify Page",
+      "name": "demo-intent-route"
+    },
+    {
+      "intent": "pricing.inquiry",
+      "targetPlaybook": "Pricing_&_Packaging",
+      "name": "pricing-playbook-route"
+    },
+    {
+      "intent": "security.integration",
+      "targetPlaybook": "Security_&_Compliance",
+      "name": "security-playbook-route"
+    },
+    {
+      "intent": "handoff.request",
+      "targetPage": "Handoff Page",
+      "name": "handoff-route"
+    }
+  ],
+  "eventHandlers": [
+    {
+      "event": "sys.no-match-default",
+      "triggerFulfillment": {
+        "messages": [
+          {
+            "text": {
+              "text": [
+                "I'd be happy to help! You can ask about our product features, pricing, integrations, security, or book a demo. What interests you most?"
+              ]
+            }
+          }
+        ],
+        "enableGenerativeFallback": true,
+        "setParameterActions": [
+          {
+            "parameter": "generative_playbook",
+            "value": "Default Marketing Playbook"
+          }
+        ]
+      }
+    }
+  ]
+}
+
