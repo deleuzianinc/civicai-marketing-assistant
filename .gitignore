@@ -10,6 +10,7 @@
 !/intents/
 !/playbooks/
 !/testCases/
+!/tools/
 !/versionConfigs/
 !/webhooks/
 

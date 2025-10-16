@@ -1,0 +1,11 @@
+{
+  "name": "443b3b79-9e93-4f88-a661-dfedb0d06cde",
+  "displayName": "marketing_knowledge_base",
+  "description": "Search CivicAI marketing website content (getcivicai.com) to answer product, pricing, security, and integration questions with approved marketing language only.",
+  "dataStores": [
+    "projects/civicai-472317/locations/global/collections/default_collection/dataStores/civicai-marketing-content"
+  ],
+  "fallbackPrompt": {
+    "promptTemplateText": "The question cannot be answered using the available information. Respond with: 'I don't have that specific information in my approved sources. I can connect you with our team or set a quick demo—what's best?'"
+  }
+}
