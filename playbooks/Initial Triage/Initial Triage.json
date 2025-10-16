@@ -43,6 +43,9 @@
     "Objection_Handling",
     "Default Marketing Playbook"
   ],
+  "referencedFlows": [
+    "Marketing Site Flow"
+  ],
   "instruction": {
     "steps": [
       {
